@@ -1,10 +1,16 @@
 package sk.m3ii0.smootheditor.code;
 
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import sk.m3ii0.smootheditor.code.editor.GUI;
+import sk.m3ii0.smootheditor.code.listeners.SelectionListener;
 
-public class Main extends JavaPlugin {
+import java.io.File;
+
+public class SmoothEditor extends JavaPlugin {
 	
 	/*
 	*
@@ -14,6 +20,7 @@ public class Main extends JavaPlugin {
 	
 	private static Plugin instance;
 	private static boolean modern;
+	private static FileConfiguration options;
 	
 	/*
 	*
@@ -24,16 +31,26 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onLoad() {
 		instance = this;
+		if (!getDataFolder().exists()) {
+			getDataFolder().mkdir();
+		}
+		saveResource("options.yml", false);
+		File configFile = new File(getDataFolder(), "options.yml");
+		options = YamlConfiguration.loadConfiguration(configFile);
 	}
 	
 	@Override
 	public void onEnable() {
-		Bukkit.getConsoleSender().sendMessage(getVersion());
+		String rawVersion = getVersion().split("_")[1];
+		int version = Integer.parseInt(rawVersion);
+		modern = version > 12;
+		Bukkit.getPluginManager().registerEvents(new SelectionListener(), this);
+		GUI.register(this);
 	}
 	
 	@Override
 	public void onDisable() {
-		super.onDisable();
+		GUI.unregister();
 	}
 	
 	/*
@@ -52,6 +69,10 @@ public class Main extends JavaPlugin {
 	* API
 	*
 	* */
+	
+	public static FileConfiguration getOptions() {
+		return options;
+	}
 	
 	public static boolean isModern() {
 		return modern;

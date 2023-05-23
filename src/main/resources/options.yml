@@ -1,0 +1,25 @@
+# Use {id} as placeholder for EntityID
+EntitySelection:
+  Selected: "§aStarted editing new entity... §7({id})"
+  AlreadySelected: "&eThis entity is already selected!"
+  Removed: "&cRemoved old editing entity... &7({id})"
+  Destroyed: "&4Your entity has been destroyed... &7({id})"
+
+MenuLayout:
+  - "---------"
+  - "         "
+  - "         "
+  - "         "
+  - "         "
+  - "---------"
+
+# Items (You're using them in MenuLayout)
+Items:
+
+  "-":
+    Material: STAINED_GLASS_PANE
+    Amount: 1
+    Color: GRAY
+    Name: "&7"
+    Lore: []
+    Action: NONE
