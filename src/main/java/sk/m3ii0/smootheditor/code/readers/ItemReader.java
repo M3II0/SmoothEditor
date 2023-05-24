@@ -1,13 +1,19 @@
 package sk.m3ii0.smootheditor.code.readers;
 
+import com.mojang.authlib.GameProfile;
+import com.mojang.authlib.properties.Property;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 import sk.m3ii0.smootheditor.code.SmoothEditor;
+import sk.m3ii0.smootheditor.code.editor.enums.MenuAction;
 import sk.m3ii0.smootheditor.code.readers.utils.XMaterial;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 public class ItemReader {
 	
@@ -17,22 +23,39 @@ public class ItemReader {
 		String color = c.getString(path + "Color");
 		int amount = c.getInt(path + "Amount");
 		String name = c.getString(path + "Name");
-		List<String> lore = c.getStringList("Lore");
+		List<String> lore = c.getStringList(path + "Lore");
 		lore.replaceAll(var -> var.replace("&", "§"));
 		ItemStack item;
-		if (SmoothEditor.isModern()) {
-			String finalColor = (color.isEmpty() || color.equalsIgnoreCase("none"))? "" : color.toUpperCase() + "_";
-			item = XMaterial.fromString(finalColor + c.getString(path + "Material")).parseItem();
+		if (c.getString(path + "Material").startsWith("Skull=")) {
+			String texture = c.getString(path + "Material").replace("Skull=", "");
+			item = createSkull(texture);
+			SkullMeta meta = (SkullMeta) item.getItemMeta();
 			item.setAmount(amount);
-		} else {
-			item = XMaterial.requestXMaterial(c.getString(path + "Material"), getColor(color)).parseItem();
-			item.setAmount(amount);
+			meta.setDisplayName(name.replace("&", "§"));
+			meta.setLore(lore);
+			item.setItemMeta(meta);
+			item.setItemMeta(meta);
+			return item;
 		}
+		item = XMaterial.requestXMaterial(c.getString(path + "Material"), getColor(color)).parseItem();
+		item.setAmount(amount);
 		ItemMeta meta = item.getItemMeta();
 		meta.setDisplayName(name.replace("&", "§"));
 		meta.setLore(lore);
 		item.setItemMeta(meta);
 		return item;
+	}
+	
+	public static MenuAction readAction(char id) {
+		FileConfiguration c = SmoothEditor.getOptions();
+		String path = "Items." + id + ".Action";
+		String rawAction = c.getString(path);
+		if (rawAction == null) return MenuAction.NONE;
+		try {
+			return MenuAction.valueOf(rawAction);
+		} catch (IllegalArgumentException e) {
+			return MenuAction.NONE;
+		}
 	}
 	
 	public static char[] getItems() {
@@ -67,6 +90,28 @@ public class ItemReader {
 			case "BLACK": return (byte) 15;
 		}
 		return 0;
+	}
+	
+	private static ItemStack createSkull(String url) {
+		ItemStack head = new ItemStack(XMaterial.PLAYER_HEAD.parseMaterial());
+		if (url.isEmpty())
+			return head;
+		
+		SkullMeta headMeta = (SkullMeta) head.getItemMeta();
+		GameProfile profile = new GameProfile(UUID.randomUUID(), null);
+		
+		profile.getProperties().put("textures", new Property("textures", url));
+		
+		try {
+			Field profileField = headMeta.getClass().getDeclaredField("profile");
+			profileField.setAccessible(true);
+			profileField.set(headMeta, profile);
+			
+		} catch (IllegalArgumentException | NoSuchFieldException | SecurityException | IllegalAccessException error) {
+			error.printStackTrace();
+		}
+		head.setItemMeta(headMeta);
+		return head;
 	}
 	
 }

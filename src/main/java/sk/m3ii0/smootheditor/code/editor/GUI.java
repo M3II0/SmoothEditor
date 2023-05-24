@@ -162,6 +162,11 @@ public class GUI implements Listener {
 		inventory.setItem(slot, item.item());
 	}
 	
+	public void updateItem(int slot, MenuItem item) {
+		items.put(slot, item);
+		inventory.setItem(slot, item.item());
+	}
+	
 	/*
 	 *
 	 * Getters

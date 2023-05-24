@@ -48,6 +48,7 @@ public class SelectionListener implements Listener {
 				}
 				if (id == entity.getEntityId()) {
 					e.getPlayer().sendMessage(SmoothEditor.getOptions().getString("EntitySelection.AlreadySelected").replace("{id}", id + "").replace("&", "§"));
+					Editor.crateOrGet(e.getPlayer());
 					return;
 				}
 				selection.remove(uuid);
@@ -55,7 +56,7 @@ public class SelectionListener implements Listener {
 			}
 			selection.put(uuid, entity);
 			e.getPlayer().sendMessage(SmoothEditor.getOptions().getString("EntitySelection.Selected").replace("{id}", entity.getEntityId() + "").replace("&", "§"));
-			new Editor(e.getPlayer());
+			Editor.removeAndCreate(e.getPlayer()).open(e.getPlayer());
 		}
 	}
 	
@@ -72,6 +73,7 @@ public class SelectionListener implements Listener {
 						return;
 					}
 					player.sendMessage(SmoothEditor.getOptions().getString("EntitySelection.Destroyed").replace("{id}", entity.getEntityId() + "").replace("&", "§"));
+					Editor.remove(entry.getKey());
 				}
 			}
 		}

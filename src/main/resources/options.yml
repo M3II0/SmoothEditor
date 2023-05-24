@@ -1,25 +1,228 @@
 # Use {id} as placeholder for EntityID
 EntitySelection:
-  Selected: "§aStarted editing new entity... §7({id})"
+  Selected: "&aStarted editing new entity... &7({id})"
   AlreadySelected: "&eThis entity is already selected!"
   Removed: "&cRemoved old editing entity... &7({id})"
   Destroyed: "&4Your entity has been destroyed... &7({id})"
 
+# Menu open handler
+OpenHandler:
+  SelectEntity: "&cSelect ArmorStand to open editor!"
+  EntityNull: "&eSelected ArmorStand does not exists, please select ArmorStand!"
+
+# Placeholders
+Placeholders:
+  ConditionTrue: "&aYes"
+  ConditionFalse: "&cNo"
+
+# Menu layout (Max 6 lines) and every line has to have 9 characters
 MenuLayout:
-  - "---------"
-  - "         "
-  - "         "
-  - "         "
-  - "         "
-  - "---------"
+  - "xxxxxxxxa"
+  - "x o xx5xc"
+  - "x1b2xx6xd"
+  - "x3 4xx7xe"
+  - "xxxxxxxxf"
+  - "ijklx+-xg"
 
 # Items (You're using them in MenuLayout)
 Items:
 
-  "-":
+  "x":
     Material: STAINED_GLASS_PANE
     Amount: 1
     Color: GRAY
     Name: "&7"
     Lore: []
     Action: NONE
+
+  "o":
+    Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjU3OGIzNmJlMGNkMGNjODQ4ZDYxNzQyNmNlODZlYTQ3MmE2MzAyMTE5ZTBhMzJmYWIxZWFkZDhmOGI1M2RiOCJ9fX0=
+    Amount: 1
+    Color: NONE
+    Name: "&fHead"
+    Lore:
+      - ""
+      - " &7-> Moving in &f{direction}"
+      - " &7-> Change value &f{change}"
+      - ""
+    Action: UPDATE_HEAD
+
+  "b":
+    Material: DIAMOND_CHESTPLATE
+    Amount: 1
+    Color: NONE
+    Name: "&fBody"
+    Lore:
+      - ""
+      - " &7-> Moving in &f{direction}"
+      - " &7-> Change value &f{change}"
+      - ""
+    Action: UPDATE_BODY
+
+  "1":
+    Material: STICK
+    Amount: 1
+    Color: NONE
+    Name: "&fLeft Arm"
+    Lore:
+      - ""
+      - " &7-> Moving in &f{direction}"
+      - " &7-> Change value &f{change}"
+      - ""
+    Action: UPDATE_LEFT_ARM
+
+  "2":
+    Material: STICK
+    Amount: 1
+    Color: NONE
+    Name: "&fRight Arm"
+    Lore:
+      - ""
+      - " &7-> Moving in &f{direction}"
+      - " &7-> Change value &f{change}"
+      - ""
+    Action: UPDATE_RIGHT_ARM
+
+  "3":
+    Material: STICK
+    Amount: 1
+    Color: NONE
+    Name: "&fLeft Leg"
+    Lore:
+      - ""
+      - " &7-> Moving in &f{direction}"
+      - " &7-> Change value &f{change}"
+      - ""
+    Action: UPDATE_LEFT_LEG
+
+  "4":
+    Material: STICK
+    Amount: 1
+    Color: NONE
+    Name: "&fRight Leg"
+    Lore:
+      - ""
+      - " &7-> Moving in &f{direction}"
+      - " &7-> Change value &f{change}"
+      - ""
+    Action: UPDATE_RIGHT_LEG
+
+  "a":
+    Material: WOOL
+    Amount: 1
+    Color: BROWN
+    Name: "&fArms Visibility: {arms}"
+    Lore: []
+    Action: CHANGE_ARMS_VISIBILITY
+
+  "c":
+    Material: WOOL
+    Amount: 1
+    Color: BROWN
+    Name: "&fBasePlate Visibility: {baseplate}"
+    Lore: []
+    Action: CHANGE_BASEPLATE_VISIBILITY
+
+  "d":
+    Material: WOOL
+    Amount: 1
+    Color: BROWN
+    Name: "&fSwitch Gravity: {gravity}"
+    Lore: []
+    Action: CHANGE_GRAVITY
+
+  "e":
+    Material: WOOL
+    Amount: 1
+    Color: BROWN
+    Name: "&fChange Size: {size}"
+    Lore: []
+    Action: CHANGE_SIZE
+
+  "f":
+    Material: WOOL
+    Amount: 1
+    Color: BROWN
+    Name: "&fChange Visibility: {visibility}"
+    Lore: []
+    Action: CHANGE_VISIBILITY
+
+  "g":
+    Material: WOOL
+    Amount: 1
+    Color: BROWN
+    Name: "&fChange CustomName Visibility: {customname}"
+    Lore: []
+    Action: CHANGE_CUSTOM_NAME_VISIBILITY
+
+  "5":
+    Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2MzMDE1MGU5MWY3ODM4Mzg2N2ZmMDVhNDhiY2M1NTQyZTY4ZDY5YjQwYzRjMTFjZGU1ZGZiNjc3OGU3NWU3NSJ9fX0=
+    Amount: 1
+    Color: BLUE
+    Name: "&fAxis to X"
+    Lore: []
+    Action: DIRECTION_TO_X
+
+  "6":
+    Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzE3ZjE0ZDYzMTkyMGJlN2VjMjIzN2M0Y2Y5YjE2MDU5NzhlN2MzZmMyMjNjZjY0YmIyMzQ4NWUyNGQ1MWY1MCJ9fX0=
+    Amount: 1
+    Color: BLUE
+    Name: "&fAxis to Y"
+    Lore: []
+    Action: DIRECTION_TO_Y
+
+  "7":
+    Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTcyZTBhYzQzMDkzZTMzZTkxZDk1OTRmMzljNzY1YjMwYjk5MDc0M2ZkYjc3MjBhZjNhZWMzMTBjZGEwNWRiYSJ9fX0=
+    Amount: 1
+    Color: BLUE
+    Name: "&fAxis to Z"
+    Lore: []
+    Action: DIRECTION_TO_Z
+
+  "i":
+    Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWMwMWY2Nzk2ZWI2M2QwZThhNzU5MjgxZDAzN2Y3YjM4NDMwOTBmOWE0NTZhNzRmNzg2ZDA0OTA2NWM5MTRjNyJ9fX0=
+    Amount: 1
+    Color: NONE
+    Name: "&fSet change to 0.1"
+    Lore: []
+    Action: CHANGE_TO_0_1
+
+  "j":
+    Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmMxODNmMzYwMWY2NzI5M2E1MWUyNTc3ZGJlYTA1YTQ2MDJlZmE0MzNjYzM1NGU2M2ZjZjdmYmUwMjY0ODZiYyJ9fX0=
+    Amount: 2
+    Color: NONE
+    Name: "&fSet change to 0.5"
+    Lore: []
+    Action: CHANGE_TO_0_5
+
+  "k":
+    Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTI5MTYyMmM1MTA0ZjFjYzk0YTJiNGQzM2FkN2IyYzliMjE1ZmY5NDk1MDFlOGMyNTBjZmQ1YTg2MWU2YjkwNyJ9fX0=
+    Amount: 3
+    Color: NONE
+    Name: "&fSet change to 1"
+    Lore: []
+    Action: CHANGE_TO_1
+
+  "l":
+    Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTQ4ZDdkMWUwM2UxYWYxNDViMDEyNWFiODQxMjg1NjcyYjQyMTI2NWRhMmFiOTE1MDE1ZjkwNTg0MzhiYTJkOCJ9fX0=
+    Amount: 4
+    Color: NONE
+    Name: "&fSet change to 10"
+    Lore: []
+    Action: CHANGE_TO_10
+
+  "+":
+    Material: WOOL
+    Amount: 1
+    Color: GREEN
+    Name: "&fDirection to positive"
+    Lore: []
+    Action: VALUE_TO_PLUS
+
+  "-":
+    Material: WOOL
+    Amount: 1
+    Color: RED
+    Name: "&fDirection to negative"
+    Lore: []
+    Action: VALUE_TO_MINUS

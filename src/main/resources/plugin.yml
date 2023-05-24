@@ -3,3 +3,9 @@ version: 0.1
 author: M3II0
 main: sk.m3ii0.smootheditor.code.SmoothEditor
 api-version: 1.13
+commands:
+  aseditor:
+    description: Creates or opens last used editor
+    permission: smootheditor.use
+    aliases:
+      - armorstandeditor

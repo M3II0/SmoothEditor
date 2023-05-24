@@ -5,6 +5,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import sk.m3ii0.smootheditor.code.commands.ASEditorCommand;
 import sk.m3ii0.smootheditor.code.editor.GUI;
 import sk.m3ii0.smootheditor.code.listeners.SelectionListener;
 
@@ -46,6 +47,7 @@ public class SmoothEditor extends JavaPlugin {
 		modern = version > 12;
 		Bukkit.getPluginManager().registerEvents(new SelectionListener(), this);
 		GUI.register(this);
+		getCommand("aseditor").setExecutor(new ASEditorCommand());
 	}
 	
 	@Override

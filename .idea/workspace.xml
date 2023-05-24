@@ -4,22 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e50651b7-ae4e-4e9f-b823-2aa5f83c2537" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/SmoothEditor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/editor/GUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/editor/guis/Editor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/listeners/SelectionListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/readers/ItemReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/readers/utils/XMaterial.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/options.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+    <list default="true" id="e50651b7-ae4e-4e9f-b823-2aa5f83c2537" name="Changes" comment="- Update">
+      <change afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/commands/ASEditorCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/editor/enums/ActionDirection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/editor/enums/ActionValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/editor/enums/MenuAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/SmoothEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/SmoothEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/editor/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/editor/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/editor/guis/Editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/editor/guis/Editor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/listeners/SelectionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/listeners/SelectionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/readers/ItemReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/readers/ItemReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/readers/utils/XMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/readers/utils/XMaterial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/options.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/options.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +28,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -73,6 +73,29 @@
       <option name="presentableId" value="Default" />
       <updated>1684872732413</updated>
     </task>
+    <task id="LOCAL-00001" summary="- Update">
+      <created>1684880761521</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684880761521</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Update" />
   </component>
 </project>
