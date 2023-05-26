@@ -3,9 +3,10 @@ package sk.m3ii0.smootheditor.code;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import sk.m3ii0.smootheditor.code.announcement.DiscordAnnouncement;
+import sk.m3ii0.smootheditor.code.announcement.UpdateChecker;
 import sk.m3ii0.smootheditor.code.commands.ASEditorCommand;
 import sk.m3ii0.smootheditor.code.editor.GUI;
 import sk.m3ii0.smootheditor.code.listeners.SelectionListener;
@@ -49,16 +50,13 @@ public class SmoothEditor extends JavaPlugin {
 		Bukkit.getPluginManager().registerEvents(new SelectionListener(), this);
 		GUI.register(this);
 		getCommand("aseditor").setExecutor(new ASEditorCommand());
-		DiscordAnnouncement.runWithMessage(this,
-		 "https://www.spigotmc.org/resources/110033/",
-		 "https://m3ii0.gitbook.io/smootheditor/plugin-support",
-		 "SmoothEditor");
+		new UpdateChecker(this, "SmoothEditor", "https://www.spigotmc.org/resources/110033/", "smootheditor.admin", "0.3", 110033);
 	}
 	
 	@Override
 	public void onDisable() {
 		GUI.unregister();
-		DiscordAnnouncement.close();
+		HandlerList.unregisterAll(this);
 	}
 	
 	/*
