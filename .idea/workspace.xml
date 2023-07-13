@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e50651b7-ae4e-4e9f-b823-2aa5f83c2537" name="Changes" comment="- Edited DiscordAnnouncement.java">
+    <list default="true" id="e50651b7-ae4e-4e9f-b823-2aa5f83c2537" name="Changes" comment="- Added UpdateChecker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/SmoothEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/SmoothEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/editor/guis/Editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/editor/guis/Editor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/readers/ItemReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/readers/ItemReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +48,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/mello/IdeaProjects/AmazingTitles",
+    "last_opened_file_path": "C:/Users/mello/IdeaProjects/Terion_BungeeCore",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -82,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685111049527</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- Added UpdateChecker">
+      <created>1685114641196</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685114641196</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -100,6 +110,7 @@
     <MESSAGE value="- Update" />
     <MESSAGE value="- Finished project" />
     <MESSAGE value="- Edited DiscordAnnouncement.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Edited DiscordAnnouncement.java" />
+    <MESSAGE value="- Added UpdateChecker" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added UpdateChecker" />
   </component>
 </project>

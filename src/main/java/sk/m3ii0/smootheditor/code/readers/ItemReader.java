@@ -2,6 +2,7 @@ package sk.m3ii0.smootheditor.code.readers;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -97,20 +98,37 @@ public class ItemReader {
 		if (url.isEmpty())
 			return head;
 		
-		SkullMeta headMeta = (SkullMeta) head.getItemMeta();
-		GameProfile profile = new GameProfile(UUID.randomUUID(), null);
-		
-		profile.getProperties().put("textures", new Property("textures", url));
-		
 		try {
-			Field profileField = headMeta.getClass().getDeclaredField("profile");
-			profileField.setAccessible(true);
-			profileField.set(headMeta, profile);
-			
-		} catch (IllegalArgumentException | NoSuchFieldException | SecurityException | IllegalAccessException error) {
-			error.printStackTrace();
+			SkullMeta headMeta = (SkullMeta) head.getItemMeta();
+			GameProfile profile = new GameProfile(UUID.randomUUID(), null);
+			profile.getProperties().put("textures", new Property("textures", url));
+			try {
+				Field profileField = headMeta.getClass().getDeclaredField("profile");
+				profileField.setAccessible(true);
+				profileField.set(headMeta, profile);
+			} catch (IllegalArgumentException | NoSuchFieldException | SecurityException | IllegalAccessException error) {
+				error.printStackTrace();
+			}
+			head.setItemMeta(headMeta);
+		} catch (ClassCastException e) {
+			try {
+				head = new ItemStack(Material.SKULL_ITEM, 0, (byte) 3);
+				SkullMeta headMeta = (SkullMeta) head.getItemMeta();
+				GameProfile profile = new GameProfile(UUID.randomUUID(), null);
+				profile.getProperties().put("textures", new Property("textures", url));
+				try {
+					Field profileField = headMeta.getClass().getDeclaredField("profile");
+					profileField.setAccessible(true);
+					profileField.set(headMeta, profile);
+				} catch (IllegalArgumentException | NoSuchFieldException | SecurityException | IllegalAccessException error) {
+					error.printStackTrace();
+				}
+				head.setItemMeta(headMeta);
+			} catch (ClassCastException ex) {
+				System.out.println("Error while creating skull item!");
+			}
 		}
-		head.setItemMeta(headMeta);
+		
 		return head;
 	}
 	

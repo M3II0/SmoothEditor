@@ -24,6 +24,7 @@ public class SmoothEditor extends JavaPlugin {
 	private static Plugin instance;
 	private static boolean modern;
 	private static FileConfiguration options;
+	private static final String vversion = "0.5";
 	
 	/*
 	*
@@ -50,7 +51,7 @@ public class SmoothEditor extends JavaPlugin {
 		Bukkit.getPluginManager().registerEvents(new SelectionListener(), this);
 		GUI.register(this);
 		getCommand("aseditor").setExecutor(new ASEditorCommand());
-		new UpdateChecker(this, "SmoothEditor", "https://www.spigotmc.org/resources/110033/", "smootheditor.admin", "0.3", 110033);
+		new UpdateChecker(this, "SmoothEditor", "https://www.spigotmc.org/resources/110033/", "smootheditor.admin", vversion, 110033);
 	}
 	
 	@Override

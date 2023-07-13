@@ -1,6 +1,5 @@
 package sk.m3ii0.smootheditor.code.editor.guis;
 
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
