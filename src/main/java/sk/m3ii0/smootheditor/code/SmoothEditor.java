@@ -24,7 +24,7 @@ public class SmoothEditor extends JavaPlugin {
 	private static Plugin instance;
 	private static boolean modern;
 	private static FileConfiguration options;
-	private static final String vversion = "0.5";
+	private static final String vversion = "0.6";
 	
 	/*
 	*

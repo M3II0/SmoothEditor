@@ -122,7 +122,7 @@ public class Editor extends GUI {
 						meta.setLore(lore);
 					}
 					item.setItemMeta(meta);
-					setItem(counter, GUI.item(item, createFunction(as, actions.get(var), direction, value, value.parse(change))));
+					setItem(counter, GUI.item(item, createFunction(as, actions.get(var))));
 				}
 				++counter;
 			}
@@ -146,7 +146,7 @@ public class Editor extends GUI {
 						meta.setLore(lore);
 					}
 					item.setItemMeta(meta);
-					setItem(counter, GUI.item(item, createFunction(as, actions.get(var), direction, value, value.parse(change))));
+					setItem(counter, GUI.item(item, createFunction(as, actions.get(var))));
 				}
 				++counter;
 			}
@@ -182,11 +182,18 @@ public class Editor extends GUI {
 		return Boolean.toString(value).replace("true", var1.replace("&", "§")).replace("false", var2.replace("&", "§"));
 	}
 	
-	private static EulerAngle createAngle(EulerAngle old, ActionDirection direction, double change) {
+	private static EulerAngle createAngle(Player player, EulerAngle old, ActionDirection direction, double change) {
+		ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
+		if (value == ActionValue.PLUS) {
+			if (change < 0) change = -change;
+		}
+		if (value == ActionValue.MINUS) {
+			if (change > 0) change = -change;
+		}
 		return old.add((direction == ActionDirection.X)? change : 0.0, (direction == ActionDirection.Y)? change : 0.0, (direction == ActionDirection.Z)? change : 0.0);
 	}
 	
-	private static FunctionalInterface createFunction(ArmorStand armorStand, MenuAction action, ActionDirection direction, ActionValue value, double change) {
+	private static FunctionalInterface createFunction(ArmorStand armorStand, MenuAction action) {
 		boolean visibility = armorStand.isVisible();
 		boolean baseplate = armorStand.hasBasePlate();
 		boolean arms = armorStand.hasArms();
@@ -196,126 +203,180 @@ public class Editor extends GUI {
 		switch (action) {
 			case UPDATE_HEAD: {
 				return (player, gui, slot, clickType) -> {
-					armorStand.setHeadPose(createAngle(armorStand.getHeadPose(), direction, change));
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
+					armorStand.setHeadPose(createAngle(player, armorStand.getHeadPose(), direction, change));
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
 			}
 			case UPDATE_BODY: {
 				return (player, gui, slot, clickType) -> {
-					armorStand.setBodyPose(createAngle(armorStand.getBodyPose(), direction, change));
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
+					armorStand.setBodyPose(createAngle(player, armorStand.getBodyPose(), direction, change));
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
 			}
 			case UPDATE_RIGHT_ARM: {
 				return (player, gui, slot, clickType) -> {
-					armorStand.setRightArmPose(createAngle(armorStand.getRightArmPose(), direction, change));
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
+					armorStand.setRightArmPose(createAngle(player, armorStand.getRightArmPose(), direction, change));
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
 			}
 			case UPDATE_LEFT_ARM: {
 				return (player, gui, slot, clickType) -> {
-					armorStand.setLeftArmPose(createAngle(armorStand.getLeftArmPose(), direction, change));
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
+					armorStand.setLeftArmPose(createAngle(player, armorStand.getLeftArmPose(), direction, change));
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
 			}
 			case UPDATE_RIGHT_LEG: {
 				return (player, gui, slot, clickType) -> {
-					armorStand.setRightLegPose(createAngle(armorStand.getRightLegPose(), direction, change));
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
+					armorStand.setRightLegPose(createAngle(player, armorStand.getRightLegPose(), direction, change));
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
 			}
 			case UPDATE_LEFT_LEG: {
 				return (player, gui, slot, clickType) -> {
-					armorStand.setLeftLegPose(createAngle(armorStand.getLeftLegPose(), direction, change));
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
+					armorStand.setLeftLegPose(createAngle(player, armorStand.getLeftLegPose(), direction, change));
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
 			}
 			case CHANGE_ARMS_VISIBILITY: {
 				return (player, gui, slot, clickType) -> {
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
 					armorStand.setArms(!arms);
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
 			}
 			case CHANGE_BASEPLATE_VISIBILITY: {
 				return (player, gui, slot, clickType) -> {
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
 					armorStand.setBasePlate(!baseplate);
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
 			}
 			case CHANGE_GRAVITY: {
 				return (player, gui, slot, clickType) -> {
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
 					armorStand.setGravity(!gravity);
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
 			}
 			case CHANGE_SIZE: {
 				return (player, gui, slot, clickType) -> {
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
 					armorStand.setSmall(!size);
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
 			}
 			case CHANGE_VISIBILITY: {
 				return (player, gui, slot, clickType) -> {
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
 					armorStand.setVisible(!visibility);
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
 			}
 			case CHANGE_CUSTOM_NAME_VISIBILITY: {
 				return (player, gui, slot, clickType) -> {
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
 					armorStand.setCustomNameVisible(!customname);
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
 			}
 			case VALUE_TO_PLUS: {
 				return (player, gui, slot, clickType) -> {
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
 					values.put(player.getUniqueId(), ActionValue.PLUS);
 					((Editor) gui).updateContents(armorStand, direction, ActionValue.PLUS, (change < 0)? -change : change);
 				};
 			}
 			case VALUE_TO_MINUS: {
 				return (player, gui, slot, clickType) -> {
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
 					values.put(player.getUniqueId(), ActionValue.MINUS);
 					((Editor) gui).updateContents(armorStand, direction, ActionValue.MINUS, change);
 				};
 			}
 			case DIRECTION_TO_X: {
 				return (player, gui, slot, clickType) -> {
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
 					directions.put(player.getUniqueId(), ActionDirection.X);
 					((Editor) gui).updateContents(armorStand, ActionDirection.X, value, change);
 				};
 			}
 			case DIRECTION_TO_Y: {
 				return (player, gui, slot, clickType) -> {
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
 					directions.put(player.getUniqueId(), ActionDirection.Y);
 					((Editor) gui).updateContents(armorStand, ActionDirection.Y, value, change);
 				};
 			}
 			case DIRECTION_TO_Z: {
 				return (player, gui, slot, clickType) -> {
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
+					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
 					directions.put(player.getUniqueId(), ActionDirection.Z);
 					((Editor) gui).updateContents(armorStand, ActionDirection.Z, value, change);
 				};
 			}
 			case CHANGE_TO_0_1: {
 				return (player, gui, slot, clickType) -> {
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					changes.put(player.getUniqueId(), 0.1);
 					((Editor) gui).updateContents(armorStand, direction, value, 0.1);
 				};
 			}
 			case CHANGE_TO_0_5: {
 				return (player, gui, slot, clickType) -> {
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					changes.put(player.getUniqueId(), 0.5);
 					((Editor) gui).updateContents(armorStand, direction, value, 0.5);
 				};
 			}
 			case CHANGE_TO_1: {
 				return (player, gui, slot, clickType) -> {
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					changes.put(player.getUniqueId(), 1.0);
 					((Editor) gui).updateContents(armorStand, direction, value, 1.0);
 				};
 			}
 			case CHANGE_TO_10: {
 				return (player, gui, slot, clickType) -> {
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					changes.put(player.getUniqueId(), 10.0);
 					((Editor) gui).updateContents(armorStand, direction, value, 10.0);
 				};
