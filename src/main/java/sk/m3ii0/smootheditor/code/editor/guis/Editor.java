@@ -16,7 +16,10 @@ import sk.m3ii0.smootheditor.code.editor.enums.MenuAction;
 import sk.m3ii0.smootheditor.code.listeners.SelectionListener;
 import sk.m3ii0.smootheditor.code.readers.ItemReader;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Editor extends GUI {
 	

@@ -4,7 +4,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.HandlerList;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import sk.m3ii0.smootheditor.code.announcement.UpdateChecker;
 import sk.m3ii0.smootheditor.code.commands.ASEditorCommand;
@@ -21,10 +20,8 @@ public class SmoothEditor extends JavaPlugin {
 	*
 	* */
 	
-	private static Plugin instance;
-	private static boolean modern;
 	private static FileConfiguration options;
-	private static final String vversion = "0.6";
+	private static final String version = "0.7";
 	
 	/*
 	*
@@ -34,7 +31,6 @@ public class SmoothEditor extends JavaPlugin {
 	
 	@Override
 	public void onLoad() {
-		instance = this;
 		if (!getDataFolder().exists()) {
 			getDataFolder().mkdir();
 		}
@@ -45,13 +41,10 @@ public class SmoothEditor extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
-		String rawVersion = getVersion().split("_")[1];
-		int version = Integer.parseInt(rawVersion);
-		modern = version > 12;
 		Bukkit.getPluginManager().registerEvents(new SelectionListener(), this);
 		GUI.register(this);
 		getCommand("aseditor").setExecutor(new ASEditorCommand());
-		new UpdateChecker(this, "SmoothEditor", "https://www.spigotmc.org/resources/110033/", "smootheditor.admin", vversion, 110033);
+		new UpdateChecker(this, "SmoothEditor", "https://www.spigotmc.org/resources/110033/", "smootheditor.admin", version, 110033);
 	}
 	
 	@Override
@@ -62,31 +55,12 @@ public class SmoothEditor extends JavaPlugin {
 	
 	/*
 	*
-	* Private API
-	*
-	* */
-	
-	private String getVersion() {
-		final String packageName = getServer().getClass().getPackage().getName();
-		return packageName.substring(packageName.lastIndexOf('.') + 1);
-	}
-	
-	/*
-	*
 	* API
 	*
 	* */
 	
 	public static FileConfiguration getOptions() {
 		return options;
-	}
-	
-	public static boolean isModern() {
-		return modern;
-	}
-	
-	public static Plugin getInstance() {
-		return instance;
 	}
 	
 }
