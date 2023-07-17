@@ -94,6 +94,8 @@ public class Editor extends GUI {
 		
 		super("tes", "Editor", 6);
 		
+		if (!player.hasPermission("smootheditor.open")) return;
+		
 		if (!SelectionListener.hasSelectedEntity(player)) {
 			player.sendMessage(SmoothEditor.getOptions().getString("OpenHandler.SelectEntity").replace("&", "§"));
 			return;
@@ -206,6 +208,7 @@ public class Editor extends GUI {
 		switch (action) {
 			case UPDATE_HEAD: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.edit.head")) return;
 					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
@@ -215,6 +218,7 @@ public class Editor extends GUI {
 			}
 			case UPDATE_BODY: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.edit.body")) return;
 					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
@@ -224,6 +228,7 @@ public class Editor extends GUI {
 			}
 			case UPDATE_RIGHT_ARM: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.edit.rarm")) return;
 					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
@@ -233,6 +238,7 @@ public class Editor extends GUI {
 			}
 			case UPDATE_LEFT_ARM: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.edit.larm")) return;
 					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
@@ -242,6 +248,7 @@ public class Editor extends GUI {
 			}
 			case UPDATE_RIGHT_LEG: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.edit.rleg")) return;
 					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
@@ -251,6 +258,7 @@ public class Editor extends GUI {
 			}
 			case UPDATE_LEFT_LEG: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.edit.lleg")) return;
 					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
@@ -260,6 +268,7 @@ public class Editor extends GUI {
 			}
 			case CHANGE_ARMS_VISIBILITY: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.change.arms")) return;
 					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
@@ -269,6 +278,7 @@ public class Editor extends GUI {
 			}
 			case CHANGE_BASEPLATE_VISIBILITY: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.change.baseplate")) return;
 					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
@@ -278,6 +288,7 @@ public class Editor extends GUI {
 			}
 			case CHANGE_GRAVITY: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.change.gravity")) return;
 					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
@@ -287,6 +298,7 @@ public class Editor extends GUI {
 			}
 			case CHANGE_SIZE: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.change.size")) return;
 					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
@@ -296,6 +308,7 @@ public class Editor extends GUI {
 			}
 			case CHANGE_VISIBILITY: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.change.visibility")) return;
 					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
@@ -305,6 +318,7 @@ public class Editor extends GUI {
 			}
 			case CHANGE_CUSTOM_NAME_VISIBILITY: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.change.nametag")) return;
 					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
@@ -314,6 +328,7 @@ public class Editor extends GUI {
 			}
 			case VALUE_TO_PLUS: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.value.plus")) return;
 					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
 					values.put(player.getUniqueId(), ActionValue.PLUS);
@@ -322,6 +337,7 @@ public class Editor extends GUI {
 			}
 			case VALUE_TO_MINUS: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.value.minus")) return;
 					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
 					values.put(player.getUniqueId(), ActionValue.MINUS);
@@ -330,6 +346,7 @@ public class Editor extends GUI {
 			}
 			case DIRECTION_TO_X: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.direction.x")) return;
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
 					directions.put(player.getUniqueId(), ActionDirection.X);
@@ -338,6 +355,7 @@ public class Editor extends GUI {
 			}
 			case DIRECTION_TO_Y: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.direction.y")) return;
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
 					directions.put(player.getUniqueId(), ActionDirection.Y);
@@ -346,6 +364,7 @@ public class Editor extends GUI {
 			}
 			case DIRECTION_TO_Z: {
 				return (player, gui, slot, clickType) -> {
+					if (!player.hasPermission("smootheditor.direction.z")) return;
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
 					directions.put(player.getUniqueId(), ActionDirection.Z);

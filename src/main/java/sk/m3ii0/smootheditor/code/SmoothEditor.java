@@ -1,6 +1,7 @@
 package sk.m3ii0.smootheditor.code;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.HandlerList;
@@ -21,7 +22,7 @@ public class SmoothEditor extends JavaPlugin {
 	* */
 	
 	private static FileConfiguration options;
-	private static final String version = "0.7";
+	private static final String version = "0.8";
 	
 	/*
 	*
@@ -61,6 +62,9 @@ public class SmoothEditor extends JavaPlugin {
 	
 	public static FileConfiguration getOptions() {
 		return options;
+	}
+	public static String getNoPerms() {
+		return ChatColor.translateAlternateColorCodes('&', options.getString("NoPermsMessage", "&cYou're not permitted to do this!"));
 	}
 	
 }

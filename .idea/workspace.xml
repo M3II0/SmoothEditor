@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e50651b7-ae4e-4e9f-b823-2aa5f83c2537" name="Changes" comment="- Fixed +/- selection">
+    <list default="true" id="e50651b7-ae4e-4e9f-b823-2aa5f83c2537" name="Changes" comment="- Removed things">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/SmoothEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/SmoothEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/editor/guis/Editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/m3ii0/smootheditor/code/editor/guis/Editor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/options.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/options.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +47,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/mello/IdeaProjects/AmazingTitles",
+    "last_opened_file_path": "C:/Users/mello/IdeaProjects/SmoothEditor",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -103,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689349448352</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="- Removed things">
+      <created>1689532746241</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1689532746241</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,6 +133,7 @@
     <MESSAGE value="- Added UpdateChecker" />
     <MESSAGE value="- Updated Project" />
     <MESSAGE value="- Fixed +/- selection" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Fixed +/- selection" />
+    <MESSAGE value="- Removed things" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Removed things" />
   </component>
 </project>
