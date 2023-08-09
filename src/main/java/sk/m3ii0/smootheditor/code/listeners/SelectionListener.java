@@ -1,5 +1,6 @@
 package sk.m3ii0.smootheditor.code.listeners;
 
+import me.jet315.minions.MinionAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -40,6 +41,7 @@ public class SelectionListener implements Listener {
 		boolean hasAs = selection.containsKey(uuid);
 		boolean isDown = e.getPlayer().isSneaking();
 		if (isAs && isDown) {
+			if (MinionAPI.isMinion(entity)) return;
 			if (hasAs) {
 				int id = 0;
 				Entity old = selection.get(uuid);
