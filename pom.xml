@@ -40,6 +40,13 @@
             <version>1.5.25</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>minions.com</groupId>
+            <artifactId>0</artifactId>
+            <version>LATEST</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/JetsMinions-7.9.5.jar</systemPath>
+        </dependency>
     </dependencies>
 
 </project>

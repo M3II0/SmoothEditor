@@ -6,7 +6,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
-import sk.m3ii0.smootheditor.code.announcement.UpdateChecker;
 import sk.m3ii0.smootheditor.code.commands.ASEditorCommand;
 import sk.m3ii0.smootheditor.code.editor.GUI;
 import sk.m3ii0.smootheditor.code.listeners.SelectionListener;
@@ -22,7 +21,6 @@ public class SmoothEditor extends JavaPlugin {
 	* */
 	
 	private static FileConfiguration options;
-	private static final String version = "0.8";
 	
 	/*
 	*
@@ -45,7 +43,6 @@ public class SmoothEditor extends JavaPlugin {
 		Bukkit.getPluginManager().registerEvents(new SelectionListener(), this);
 		GUI.register(this);
 		getCommand("aseditor").setExecutor(new ASEditorCommand());
-		new UpdateChecker(this, "SmoothEditor", "https://www.spigotmc.org/resources/110033/", "smootheditor.admin", version, 110033);
 	}
 	
 	@Override
