@@ -1,10 +1,12 @@
 package sk.m3ii0.smootheditor.code.editor.guis;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.util.EulerAngle;
@@ -209,9 +211,15 @@ public class Editor extends GUI {
 			case UPDATE_HEAD: {
 				return (player, gui, slot, clickType) -> {
 					if (!player.hasPermission("smootheditor.edit.head")) return;
-					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					prepareValue(player, clickType);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
+					if (prepareDirection(player, clickType)) {
+						ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+						((Editor) gui).updateContents(armorStand, direction, value, change);
+						return;
+					}
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					armorStand.setHeadPose(createAngle(player, armorStand.getHeadPose(), direction, change));
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
@@ -219,9 +227,15 @@ public class Editor extends GUI {
 			case UPDATE_BODY: {
 				return (player, gui, slot, clickType) -> {
 					if (!player.hasPermission("smootheditor.edit.body")) return;
-					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					prepareValue(player, clickType);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
+					if (prepareDirection(player, clickType)) {
+						ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+						((Editor) gui).updateContents(armorStand, direction, value, change);
+						return;
+					}
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					armorStand.setBodyPose(createAngle(player, armorStand.getBodyPose(), direction, change));
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
@@ -229,9 +243,15 @@ public class Editor extends GUI {
 			case UPDATE_RIGHT_ARM: {
 				return (player, gui, slot, clickType) -> {
 					if (!player.hasPermission("smootheditor.edit.rarm")) return;
-					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					prepareValue(player, clickType);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
+					if (prepareDirection(player, clickType)) {
+						ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+						((Editor) gui).updateContents(armorStand, direction, value, change);
+						return;
+					}
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					armorStand.setRightArmPose(createAngle(player, armorStand.getRightArmPose(), direction, change));
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
@@ -239,9 +259,15 @@ public class Editor extends GUI {
 			case UPDATE_LEFT_ARM: {
 				return (player, gui, slot, clickType) -> {
 					if (!player.hasPermission("smootheditor.edit.larm")) return;
-					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					prepareValue(player, clickType);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
+					if (prepareDirection(player, clickType)) {
+						ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+						((Editor) gui).updateContents(armorStand, direction, value, change);
+						return;
+					}
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					armorStand.setLeftArmPose(createAngle(player, armorStand.getLeftArmPose(), direction, change));
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
@@ -249,9 +275,15 @@ public class Editor extends GUI {
 			case UPDATE_RIGHT_LEG: {
 				return (player, gui, slot, clickType) -> {
 					if (!player.hasPermission("smootheditor.edit.rleg")) return;
-					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					prepareValue(player, clickType);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
+					if (prepareDirection(player, clickType)) {
+						ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+						((Editor) gui).updateContents(armorStand, direction, value, change);
+						return;
+					}
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					armorStand.setRightLegPose(createAngle(player, armorStand.getRightLegPose(), direction, change));
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
@@ -259,9 +291,15 @@ public class Editor extends GUI {
 			case UPDATE_LEFT_LEG: {
 				return (player, gui, slot, clickType) -> {
 					if (!player.hasPermission("smootheditor.edit.lleg")) return;
-					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+					prepareValue(player, clickType);
 					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
 					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
+					if (prepareDirection(player, clickType)) {
+						ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
+						((Editor) gui).updateContents(armorStand, direction, value, change);
+						return;
+					}
+					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
 					armorStand.setLeftLegPose(createAngle(player, armorStand.getLeftLegPose(), direction, change));
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
@@ -326,51 +364,6 @@ public class Editor extends GUI {
 					((Editor) gui).updateContents(armorStand, direction, value, change);
 				};
 			}
-			case VALUE_TO_PLUS: {
-				return (player, gui, slot, clickType) -> {
-					if (!player.hasPermission("smootheditor.value.plus")) return;
-					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
-					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
-					values.put(player.getUniqueId(), ActionValue.PLUS);
-					((Editor) gui).updateContents(armorStand, direction, ActionValue.PLUS, (change < 0)? -change : change);
-				};
-			}
-			case VALUE_TO_MINUS: {
-				return (player, gui, slot, clickType) -> {
-					if (!player.hasPermission("smootheditor.value.minus")) return;
-					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
-					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
-					values.put(player.getUniqueId(), ActionValue.MINUS);
-					((Editor) gui).updateContents(armorStand, direction, ActionValue.MINUS, change);
-				};
-			}
-			case DIRECTION_TO_X: {
-				return (player, gui, slot, clickType) -> {
-					if (!player.hasPermission("smootheditor.direction.x")) return;
-					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
-					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
-					directions.put(player.getUniqueId(), ActionDirection.X);
-					((Editor) gui).updateContents(armorStand, ActionDirection.X, value, change);
-				};
-			}
-			case DIRECTION_TO_Y: {
-				return (player, gui, slot, clickType) -> {
-					if (!player.hasPermission("smootheditor.direction.y")) return;
-					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
-					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
-					directions.put(player.getUniqueId(), ActionDirection.Y);
-					((Editor) gui).updateContents(armorStand, ActionDirection.Y, value, change);
-				};
-			}
-			case DIRECTION_TO_Z: {
-				return (player, gui, slot, clickType) -> {
-					if (!player.hasPermission("smootheditor.direction.z")) return;
-					ActionValue value = values.getOrDefault(player.getUniqueId(), ActionValue.PLUS);
-					double change = changes.getOrDefault(player.getUniqueId(), 0.1);
-					directions.put(player.getUniqueId(), ActionDirection.Z);
-					((Editor) gui).updateContents(armorStand, ActionDirection.Z, value, change);
-				};
-			}
 			case CHANGE_TO_0_1: {
 				return (player, gui, slot, clickType) -> {
 					ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);
@@ -405,6 +398,35 @@ public class Editor extends GUI {
 			}
 		}
 		return (player, gui, slot, clickType) -> {};
+	}
+	
+	private static void prepareValue(Player player, ClickType clickType) {
+		if (clickType.isRightClick()) {
+			values.put(player.getUniqueId(), ActionValue.PLUS);
+		} else if (clickType.isLeftClick()) {
+			values.put(player.getUniqueId(), ActionValue.MINUS);
+		}
+	}
+	
+	private static boolean prepareDirection(Player player, ClickType clickType) {
+		if (clickType == ClickType.MIDDLE) {
+			ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);;
+			switch (direction) {
+				case X: {
+					directions.put(player.getUniqueId(), ActionDirection.Y);
+					return true;
+				}
+				case Y: {
+					directions.put(player.getUniqueId(), ActionDirection.Z);
+					return true;
+				}
+				case Z: {
+					directions.put(player.getUniqueId(), ActionDirection.X);
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 	
 }

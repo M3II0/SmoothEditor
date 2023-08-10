@@ -20,11 +20,11 @@ NoPermsMessage: "&cYou're not permitted to do this!"
 # Menu layout (Max 6 lines) and every line has to have 9 characters
 MenuLayout:
   - "xxxxxxxxa"
-  - "x o xx5xc"
-  - "x1b2xx6xd"
-  - "x3 4xx7xe"
+  - "x o xx xc"
+  - "x1b2xx xd"
+  - "x3 4xx xe"
   - "xxxxxxxxf"
-  - "ijklx+-xg"
+  - "ijklx  xg"
 
 # Items (You're using them in MenuLayout)
 Items:
@@ -157,30 +157,6 @@ Items:
     Lore: []
     Action: CHANGE_CUSTOM_NAME_VISIBILITY
 
-  "5":
-    Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2MzMDE1MGU5MWY3ODM4Mzg2N2ZmMDVhNDhiY2M1NTQyZTY4ZDY5YjQwYzRjMTFjZGU1ZGZiNjc3OGU3NWU3NSJ9fX0=
-    Amount: 1
-    Color: BLUE
-    Name: "&fAxis to X"
-    Lore: []
-    Action: DIRECTION_TO_X
-
-  "6":
-    Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzE3ZjE0ZDYzMTkyMGJlN2VjMjIzN2M0Y2Y5YjE2MDU5NzhlN2MzZmMyMjNjZjY0YmIyMzQ4NWUyNGQ1MWY1MCJ9fX0=
-    Amount: 1
-    Color: BLUE
-    Name: "&fAxis to Y"
-    Lore: []
-    Action: DIRECTION_TO_Y
-
-  "7":
-    Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTcyZTBhYzQzMDkzZTMzZTkxZDk1OTRmMzljNzY1YjMwYjk5MDc0M2ZkYjc3MjBhZjNhZWMzMTBjZGEwNWRiYSJ9fX0=
-    Amount: 1
-    Color: BLUE
-    Name: "&fAxis to Z"
-    Lore: []
-    Action: DIRECTION_TO_Z
-
   "i":
     Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWMwMWY2Nzk2ZWI2M2QwZThhNzU5MjgxZDAzN2Y3YjM4NDMwOTBmOWE0NTZhNzRmNzg2ZDA0OTA2NWM5MTRjNyJ9fX0=
     Amount: 1
@@ -212,19 +188,3 @@ Items:
     Name: "&fSet change to 10"
     Lore: []
     Action: CHANGE_TO_10
-
-  "+":
-    Material: WOOL
-    Amount: 1
-    Color: GREEN
-    Name: "&fDirection to positive"
-    Lore: []
-    Action: VALUE_TO_PLUS
-
-  "-":
-    Material: WOOL
-    Amount: 1
-    Color: RED
-    Name: "&fDirection to negative"
-    Lore: []
-    Action: VALUE_TO_MINUS
