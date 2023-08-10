@@ -409,7 +409,7 @@ public class Editor extends GUI {
 	}
 	
 	private static boolean prepareDirection(Player player, ClickType clickType) {
-		if (clickType == ClickType.MIDDLE) {
+		if (clickType == ClickType.DROP) {
 			ActionDirection direction = directions.getOrDefault(player.getUniqueId(), ActionDirection.X);;
 			switch (direction) {
 				case X: {
