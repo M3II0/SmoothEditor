@@ -33,7 +33,6 @@ Items:
     Material: STAINED_GLASS_PANE
     Amount: 1
     CustomModelData: 0
-    Color: GRAY
     Name: "&7"
     Lore: []
     Action: NONE
@@ -42,7 +41,6 @@ Items:
     Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjU3OGIzNmJlMGNkMGNjODQ4ZDYxNzQyNmNlODZlYTQ3MmE2MzAyMTE5ZTBhMzJmYWIxZWFkZDhmOGI1M2RiOCJ9fX0=
     Amount: 1
     CustomModelData: 0
-    Color: NONE
     Name: "&fHead"
     Lore:
       - ""
@@ -55,7 +53,6 @@ Items:
     Material: DIAMOND_CHESTPLATE
     Amount: 1
     CustomModelData: 0
-    Color: NONE
     Name: "&fBody"
     Lore:
       - ""
@@ -68,7 +65,6 @@ Items:
     Material: STICK
     Amount: 1
     CustomModelData: 0
-    Color: NONE
     Name: "&fLeft Arm"
     Lore:
       - ""
@@ -81,7 +77,6 @@ Items:
     Material: STICK
     Amount: 1
     CustomModelData: 0
-    Color: NONE
     Name: "&fRight Arm"
     Lore:
       - ""
@@ -94,7 +89,6 @@ Items:
     Material: STICK
     Amount: 1
     CustomModelData: 0
-    Color: NONE
     Name: "&fLeft Leg"
     Lore:
       - ""
@@ -107,7 +101,6 @@ Items:
     Material: STICK
     Amount: 1
     CustomModelData: 0
-    Color: NONE
     Name: "&fRight Leg"
     Lore:
       - ""
@@ -120,7 +113,6 @@ Items:
     Material: WOOL
     Amount: 1
     CustomModelData: 0
-    Color: BROWN
     Name: "&fArms Visibility: {arms}"
     Lore: []
     Action: CHANGE_ARMS_VISIBILITY
@@ -129,7 +121,6 @@ Items:
     Material: WOOL
     Amount: 1
     CustomModelData: 0
-    Color: BROWN
     Name: "&fBasePlate Visibility: {baseplate}"
     Lore: []
     Action: CHANGE_BASEPLATE_VISIBILITY
@@ -138,7 +129,6 @@ Items:
     Material: WOOL
     Amount: 1
     CustomModelData: 0
-    Color: BROWN
     Name: "&fSwitch Gravity: {gravity}"
     Lore: []
     Action: CHANGE_GRAVITY
@@ -147,7 +137,6 @@ Items:
     Material: WOOL
     Amount: 1
     CustomModelData: 0
-    Color: BROWN
     Name: "&fChange Size: {size}"
     Lore: []
     Action: CHANGE_SIZE
@@ -165,7 +154,6 @@ Items:
     Material: WOOL
     Amount: 1
     CustomModelData: 0
-    Color: BROWN
     Name: "&fChange CustomName Visibility: {customname}"
     Lore: []
     Action: CHANGE_CUSTOM_NAME_VISIBILITY
@@ -174,7 +162,6 @@ Items:
     Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWMwMWY2Nzk2ZWI2M2QwZThhNzU5MjgxZDAzN2Y3YjM4NDMwOTBmOWE0NTZhNzRmNzg2ZDA0OTA2NWM5MTRjNyJ9fX0=
     Amount: 1
     CustomModelData: 0
-    Color: NONE
     Name: "&fSet change to 0.1"
     Lore: []
     Action: CHANGE_TO_0_1
@@ -183,7 +170,6 @@ Items:
     Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmMxODNmMzYwMWY2NzI5M2E1MWUyNTc3ZGJlYTA1YTQ2MDJlZmE0MzNjYzM1NGU2M2ZjZjdmYmUwMjY0ODZiYyJ9fX0=
     Amount: 2
     CustomModelData: 0
-    Color: NONE
     Name: "&fSet change to 0.5"
     Lore: []
     Action: CHANGE_TO_0_5
@@ -192,7 +178,6 @@ Items:
     Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTI5MTYyMmM1MTA0ZjFjYzk0YTJiNGQzM2FkN2IyYzliMjE1ZmY5NDk1MDFlOGMyNTBjZmQ1YTg2MWU2YjkwNyJ9fX0=
     Amount: 3
     CustomModelData: 0
-    Color: NONE
     Name: "&fSet change to 1"
     Lore: []
     Action: CHANGE_TO_1
@@ -201,7 +186,6 @@ Items:
     Material: Skull=eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTQ4ZDdkMWUwM2UxYWYxNDViMDEyNWFiODQxMjg1NjcyYjQyMTI2NWRhMmFiOTE1MDE1ZjkwNTg0MzhiYTJkOCJ9fX0=
     Amount: 4
     CustomModelData: 0
-    Color: NONE
     Name: "&fSet change to 10"
     Lore: []
     Action: CHANGE_TO_10

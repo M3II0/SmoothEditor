@@ -6,11 +6,13 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import sk.m3ii0.smootheditor.code.SmoothEditor;
 import sk.m3ii0.smootheditor.code.editor.guis.Editor;
+import sk.m3ii0.smootheditor.code.utils.ColorTranslator;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +26,7 @@ public class SelectionListener implements Listener {
 	*
 	* */
 	
-	private static Map<UUID, Entity> selection = new HashMap<>();
+	private static final Map<UUID, Entity> selection = new HashMap<>();
 	
 	/*
 	*
@@ -32,9 +34,10 @@ public class SelectionListener implements Listener {
 	*
 	* */
 	
-	@EventHandler
+	@EventHandler (priority = EventPriority.MONITOR)
 	public void playerInteract(PlayerInteractAtEntityEvent e) {
 		if (e.getRightClicked() == null) return;
+		if (e.isCancelled()) return;
 		UUID uuid = e.getPlayer().getUniqueId();
 		Entity entity = e.getRightClicked();
 		boolean isAs = e.getRightClicked().getType() == EntityType.ARMOR_STAND;
@@ -49,15 +52,15 @@ public class SelectionListener implements Listener {
 					id = old.getEntityId();
 				}
 				if (id == entity.getEntityId()) {
-					e.getPlayer().sendMessage(SmoothEditor.getOptions().getString("EntitySelection.AlreadySelected").replace("{id}", id + "").replace("&", "§"));
+					e.getPlayer().sendMessage(ColorTranslator.colorize(SmoothEditor.getOptions().getString("EntitySelection.AlreadySelected").replace("{id}", id + "")));
 					Editor.crateOrGet(e.getPlayer());
 					return;
 				}
 				selection.remove(uuid);
-				e.getPlayer().sendMessage(SmoothEditor.getOptions().getString("EntitySelection.Removed").replace("{id}", id + "").replace("&", "§"));
+				e.getPlayer().sendMessage(ColorTranslator.colorize(SmoothEditor.getOptions().getString("EntitySelection.Removed").replace("{id}", id + "")));
 			}
 			selection.put(uuid, entity);
-			e.getPlayer().sendMessage(SmoothEditor.getOptions().getString("EntitySelection.Selected").replace("{id}", entity.getEntityId() + "").replace("&", "§"));
+			e.getPlayer().sendMessage(ColorTranslator.colorize(SmoothEditor.getOptions().getString("EntitySelection.Selected").replace("{id}", entity.getEntityId() + "")));
 			Editor.removeAndCreate(e.getPlayer()).open(e.getPlayer());
 		}
 	}
@@ -74,7 +77,7 @@ public class SelectionListener implements Listener {
 					if (player == null) {
 						return;
 					}
-					player.sendMessage(SmoothEditor.getOptions().getString("EntitySelection.Destroyed").replace("{id}", entity.getEntityId() + "").replace("&", "§"));
+					player.sendMessage(ColorTranslator.colorize(SmoothEditor.getOptions().getString("EntitySelection.Destroyed").replace("{id}", entity.getEntityId() + "")));
 					Editor.remove(entry.getKey());
 				}
 			}

@@ -17,6 +17,7 @@ import sk.m3ii0.smootheditor.code.editor.enums.ActionValue;
 import sk.m3ii0.smootheditor.code.editor.enums.MenuAction;
 import sk.m3ii0.smootheditor.code.listeners.SelectionListener;
 import sk.m3ii0.smootheditor.code.readers.ItemReader;
+import sk.m3ii0.smootheditor.code.utils.ColorTranslator;
 
 import java.util.HashMap;
 import java.util.List;
@@ -136,6 +137,7 @@ public class Editor extends GUI {
 		}
 		
 		open(player);
+		updateContents(as, direction, value, change);
 	}
 	
 	private void updateContents(ArmorStand as, ActionDirection direction, ActionValue value, double change) {
@@ -170,7 +172,7 @@ public class Editor extends GUI {
 		boolean size = armorStand.isSmall();
 		boolean customname = armorStand.isCustomNameVisible();
 		boolean gravity = armorStand.hasGravity();
-		return text
+		return ColorTranslator.colorize(text
 		 .replace("{visibility}", translateBoolean(visibility))
 		 .replace("{baseplate}", translateBoolean(baseplate))
 		 .replace("{arms}", translateBoolean(arms))
@@ -179,7 +181,7 @@ public class Editor extends GUI {
 		 .replace("{gravity}", translateBoolean(gravity))
 		 .replace("{id}", armorStand.getEntityId() + "")
 		 .replace("{direction}", direction.name())
-		 .replace("{change}", value.parse(change) + "");
+		 .replace("{change}", value.parse(change) + ""));
 	}
 	
 	private static String translateBoolean(boolean value) {
